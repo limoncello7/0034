@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+
+    <title>Examples of responsive design elements</title>
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+<p>Change the size of the browser window to see how the page would adapt to different screen sizes.</p>
+<p>The CSS to do this is contained in the responsive.css file.</p>
+<hr>
+
+<h1>Responsive images</h1>
+<!-- Using styling in responsive.css -->
+<p>The following image will scale down if it has to, but never scale up to be larger than its original size</p>
+<img alt="UCL culture butterfly picture" src="images/butterfly.jpg"/>
+<!-- Using the picture tag -->
+<picture>
+    <source srcset="images/butterfly.jpg" media="(min-width: 700px)">
+    <source srcset="images/butterfly_thumb.jpg" media="(min-width: 200px)">
+     <img src="images/butterfly.jpg" alt="UCL culture butterfly picture">
+</picture>
+<hr>
+
+<!-- Uses styling in responsive.css for h2 and p.responsive -->
+<h1>Responsive text</h1>
+<h2>This text should change</h2>
+<p class="responsive">This text should change size</p>
+<hr>
+
+<!-- Uses @media rules in responsive.css -->
+<h1>Media queries</h1>
+<p>Change the size of the screen (viewport) to see the background colour change.</p>
+
+</body>
+</html>
