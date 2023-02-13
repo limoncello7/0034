@@ -23,7 +23,13 @@ df_brent_daily = pd.read_csv(BRENT_DAILY_FILEPATH, usecols=cols)
 line_brent_daily = px.line(df_brent_daily,
                           x='Date',
                           y='Price',
-                          labels={'Date': '', 'Price': 'Price'},
+                          labels={'Date': 'Date', 'Price': 'Price'},
+                          template="simple_white"
+                          )
+line_brent_daily = px.line(df_brent_daily,
+                          x='Date',
+                          y='Price',
+                          labels={'Date': 'Date', 'Price': 'Price'},
                           template="simple_white"
                           )
 
@@ -41,7 +47,7 @@ app = Dash(__name__,
 app.layout = dbc.Container(
     [
         html.H1("Dashboard of oil and gas prices"),
-        html.H2("Has the number of athletes, nations, events and sports changed over time?"),
+        html.H2("This chart is showing how brent oil price changes"),
         dcc.Graph(
             id='line-sports',
             figure=line_brent_daily
