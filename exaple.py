@@ -19,26 +19,23 @@ WTI_MONTHLY_FILEPATH = Path(__file__).parent.joinpath( 'wti-month.csv')
 
 cols = ['Date', 'Price']
 df_brent_daily = pd.read_csv(BRENT_DAILY_FILEPATH, usecols=cols)
+df_wti_daily = pd.read_csv(WTI_DAILY_FILEPATH, usecols=cols)
 
-line_brent_daily = px.line(df_brent_daily,
-                          x='Date',
-                          y='Price',
-                          labels={'Date': 'Date', 'Price': 'Price'},
-                          template="simple_white"
-                          )
-line_brent_daily = px.line(df_brent_daily,
-                          x='Date',
-                          y='Price',
-                          labels={'Date': 'Date', 'Price': 'Price'},
-                          template="simple_white"
-                          )
+line_brent_daily = px.line(df_brent_daily, x='Date', y='Price', title='Brent Daily Price')
+
+line_wti_daily = px.line(df_wti_daily, x='Date', y='Price',title='WTI Daily Price')
+
+line_brent_daily.update_layout(title="Prices Over Time")
+fig_1 = px.line()
+fig_1.add_scatter(x=df_brent_daily['Date'], y=df_brent_daily['Price'], name='Brent Price')
+fig_1.add_scatter(x=df_wti_daily['Date'], y=df_wti_daily['Price'], name='WTI Price')
 
 
 app = Dash(__name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP],
     meta_tags=[
         {
-            "name": "viewport",
+            #"name": "viewport",
             "content": "width=device-width, initial-scale=1"
         },
     ],
@@ -49,8 +46,8 @@ app.layout = dbc.Container(
         html.H1("Dashboard of oil and gas prices"),
         html.H2("This chart is showing how brent oil price changes"),
         dcc.Graph(
-            id='line-sports',
-            figure=line_brent_daily
+            id='line-daily',
+            figure=fig_1
         ),
     ],
     fluid=True,
