@@ -28,12 +28,6 @@ df_brent_monthly = pd.read_csv(BRENT_MONTH_FILEPATH, usecols=cols)
 
 
 
-
-
-
-
-
-
 line_brent_daily = px.line(df_brent_daily, x='Date', y='Price', title='Brent Daily Price')
 
 line_wti_daily = px.line(df_wti_daily, x='Date', y='Price',title='WTI Daily Price')
