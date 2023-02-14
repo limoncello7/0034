@@ -5,6 +5,7 @@ from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 import plotly.express as px
 
+
 #-------
 # Charts
 #-------
@@ -44,7 +45,7 @@ app = Dash(__name__,
 app.layout = dbc.Container(
     [
         html.H1("Dashboard of oil and gas prices"),
-        html.H2("This chart is showing how brent oil price changes"),
+        html.H2("This chart is showing how Brent&WTI oil price changes"),
         dcc.Graph(
             id='line-daily',
             figure=fig_1
