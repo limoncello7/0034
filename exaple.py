@@ -10,15 +10,15 @@ import plotly.express as px
 # Charts
 #-------
 
-BRENT_DAILY_FILEPATH = Path(__file__).parent.joinpath( 'brent-daily.csv')
-GAS_DAILY_FILEPATH = Path(__file__).parent.joinpath( 'gas-daily.csv')
-BRENT_MONTH_FILEPATH = Path(__file__).parent.joinpath('brent-month.csv')
-GAS_MONTHLY_FILEPATH = Path(__file__).parent.joinpath( 'gas-monthly.csv')
-WTI_DAILY_FILEPATH = Path(__file__).parent.joinpath( 'wti-daily.csv')
-WTI_MONTHLY_FILEPATH = Path(__file__).parent.joinpath( 'wti-month.csv')
+BRENT_DAILY_FILEPATH = Path(__file__).parent.joinpath( 'data','brent-daily.csv')
+GAS_DAILY_FILEPATH = Path(__file__).parent.joinpath('data','gas-daily.csv')
+BRENT_MONTH_FILEPATH = Path(__file__).parent.joinpath('data','brent-month.csv')
+GAS_MONTHLY_FILEPATH = Path(__file__).parent.joinpath( 'data','gas-monthly.csv')
+WTI_DAILY_FILEPATH = Path(__file__).parent.joinpath( 'data','wti-daily.csv')
+WTI_MONTHLY_FILEPATH = Path(__file__).parent.joinpath( 'data','wti-month.csv')
 
 
-cols = ['Date', 'Price']
+cols = ['type','Date', 'Price']
 df_brent_daily = pd.read_csv(BRENT_DAILY_FILEPATH, usecols=cols)
 df_wti_daily = pd.read_csv(WTI_DAILY_FILEPATH, usecols=cols)
 df_gas_daily = pd.read_csv(GAS_DAILY_FILEPATH, usecols=cols)
@@ -58,7 +58,7 @@ app.layout = dbc.Container(
             figure=fig_1
         ),
         html.H2("This chart is showing the trend of brent price changes compare to the change of gas price"),
-
+        
     ],
     fluid=True,
 )
