@@ -1,3 +1,3 @@
 URL :https://github.com/limoncello7/0034.git
 The app includes 1 data_preparation code which put all daily data together, forms 1 daily csv and 1 monthly csv table.
-Then the main app is coding to form 3 part with 4 graphs, the first is line chart, and second is a bar chart, the last one is consist with two selectable chart and use of callbacks, the two charts can be seperately chooses different chart and compare for a choosen time period.
+Then the main app is coding to form 3 part with 4 graphs, the first is line chart, and second is a bar chart, the last one is consist with two selectable chart and use of callbacks, the two charts can be seperately chooses different chart and compare for a choosen time period. And in the last row, there is a buttom can move to the first page.
