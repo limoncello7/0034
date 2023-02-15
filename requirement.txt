@@ -1,0 +1,6 @@
+pathlib
+pandas
+dash
+dash_bootstrap_components
+plotly.express
+plotly.graph_objs
