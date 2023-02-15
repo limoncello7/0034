@@ -62,19 +62,21 @@ app = Dash(__name__,
 app.layout = dbc.Container(
 [
     html.H1("Dashboard of Oil and Gas Prices"),
+    html.Br(),
     html.H2("This chart shows the changes in Brent & WTI oil prices."),
     dcc.Graph(id='line-daily', figure=fig_1),
     html.H2("This chart shows the trend of Brent price changes compared to gas price changes."),
+    html.Br(),
+    html.Br(),
+    html.Br(),
     html.Div
     ([
         dcc.Location(id='url', refresh=False),
         html.Div(id='page-content'),
-        html.Div(
-            [
-            dcc.Link('Brent and WTI', href='/page-1\n'),
-            dcc.Link('Pattern Matching Graphs', href='/page-2'),
-            ]),
+        html.Div(dcc.Link('', href='/page-1'),),
         html.H1(children='Pattern Matching Graphs'),
+        html.Br(),
+        html.H2('In this chart, you can compare two price changes in som specific time period with two choosen graphs:'),
         dcc.Dropdown
             (
             id='category-dropdown',
@@ -102,7 +104,8 @@ dcc.Dropdown
             ),
 
         dcc.RadioItems(id='time-radio_2',value='daily_2'),
-dcc.Graph(id='pattern-matching-graph_2')
+dcc.Graph(id='pattern-matching-graph_2'),
+         html.Div(dcc.Link('Return to first chart', href='/page-2')),
     ],
     
 className="container-fluid"
